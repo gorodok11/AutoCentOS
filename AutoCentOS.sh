@@ -32,3 +32,28 @@ else
     exit 1
 fi
 echo "=================================================="
+
+echo "Проверка файла конфигурации"
+while [ $# -gt 0 ]; do
+        case $1 in
+                -c)
+                        if [ -r "$2" ]; then
+                                source "$2"
+                                shift 2
+                        else
+                                ${ECHO} "Нечитаемый файл конфигурации \"$2\""
+                                exit 1
+                        fi
+                        ;;
+                *)
+                        ${ECHO} "Незнакомая опция \"$1\""
+                        exit 2
+                        ;;
+        esacdone
+ 
+if [ $# = 0 ]; then
+        SCRIPTPATH=$(cd ${0%/*} && pwd -P)
+        source $SCRIPTPATH/AutoCentOS.conf
+fi;
+
+
