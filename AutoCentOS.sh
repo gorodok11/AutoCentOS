@@ -6,7 +6,7 @@
 echo "Проверка версии ОС..."
 release=`cat /etc/redhat-release|awk '{print $3}'`
 if [ $release != "6.4" ]
-    then
+	then
   	echo "Это не CentOS 6.4. Скрипт не тестировался на другие платформы."
         while true; do
 			read -p "Продолжить? [y/N]" warncheck
@@ -33,7 +33,7 @@ else
 fi
 echo "=================================================="
 
-echo "Проверка файла конфигурации"
+echo "Проверка файла конфигурации..."
 while [ $# -gt 0 ]; do
         case $1 in
                 -c)
@@ -49,11 +49,14 @@ while [ $# -gt 0 ]; do
                         ${ECHO} "Незнакомая опция \"$1\""
                         exit 2
                         ;;
-        esacdone
- 
+        esac
+done
+
+echo "Загрузка файла конфигурации"
 if [ $# = 0 ]; then
-        SCRIPTPATH=$(cd ${0%/*} && pwd -P)
+        SCRIPTPATH=$(cd $(dirname $0) && pwd);
         source $SCRIPTPATH/AutoCentOS.conf
 fi;
+
 
 
