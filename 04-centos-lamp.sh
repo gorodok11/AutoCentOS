@@ -18,4 +18,25 @@ source 00-centos-functions.sh
 declare -a packages=( httpd php php-common mysql php-mysql mysql-server phpmyadmin );
 install_packages ${packages[@]}
 
-service httpd restart
+chkconfig httpd on
+chkconfig mysqld on
+service mysqld start
+service httpd start
+
+tput setaf 2
+echo "Set root password. Disable guest login. Remove test databases. Activate changes."
+echo "By default root password is empty."
+tput sgr0
+
+/usr/bin/mysql_secure_installation
+
+service mysqld restart
+
+echo "<?php
+phpinfo();
+?>" >/var/www/html/info.php
+
+tput setaf 2
+echo "Open in browser http://your_IP/info.php for testing PHP."
+echo "Open in browser http://your_IP/phpmyadmin to administrate mySQL databases."
+tput sgr0
