@@ -14,3 +14,6 @@
 
 # Importing functions
 source 00-centos-functions.sh
+
+declare -a packages=( nano mc htop );
+install_packages ${packages[@]}
