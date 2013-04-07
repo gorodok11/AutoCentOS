@@ -15,7 +15,7 @@
 # Importing functions
 source 00-centos-functions.sh
 
-declare -a packages=( httpd php php-common mysql php-mysql mysql-server phpmyadmin );
+declare -a packages=( httpd php php-common mysql php-mysql mysql-server mysql-bench mysql-devel php-gd php-cli  php-pear.noarch php-pear-DB.noarch php-pear-File.noarch phpmyadmin );
 install_packages ${packages[@]}
 
 chkconfig httpd on
