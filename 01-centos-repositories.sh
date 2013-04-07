@@ -1,8 +1,6 @@
 #!/bin/bash
 #Install repsitories
 
-source 00-centos-functions.sh
-
 install_EPEL ()
 {
 tput clear
