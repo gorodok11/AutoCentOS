@@ -37,6 +37,9 @@ sed -i '/enabled=1/a\priority=10\' /etc/yum.repos.d/remi.repo
 }
 
 yum install -y yum-priorities
+#Setting base priorities
+sed -i '/enabled=1/a\priority=1\' /etc/yum.repos.d/CentOS-Base.repo
+
 
 while true; do
   tput clear
