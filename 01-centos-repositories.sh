@@ -31,7 +31,7 @@ case $arch in
 esac
 rpm -Uvh epel-release-6-8.noarch.rpm
 rm epel-release-6-8.noarch.rpm
-sed -i '/enabled=1/a\priority=10\' /etc/yum.repos.d/epel.repo
+sed -i "/enabled=1/a\priority=10\" /etc/yum.repos.d/epel.repo
 }
 
 install_REMI ()
@@ -44,12 +44,12 @@ wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 rpm -Uvh remi-release-6.rpm
 rm remi-release-6.rpm
 sed -i "/\[remi\]/,/\[.*\]/s/enabled=.*/enabled=1/" /etc/yum.repos.d/remi.repo
-sed -i '/enabled=1/a\priority=10\' /etc/yum.repos.d/remi.repo
+sed -i "/enabled=1/a\priority=10\" /etc/yum.repos.d/remi.repo
 }
 
 yum install -y yum-priorities
 #Setting base priorities
-sed -i '/enabled=1/a\priority=1\' /etc/yum.repos.d/CentOS-Base.repo
+sed -i "/enabled=1/a\priority=1\" /etc/yum.repos.d/CentOS-Base.repo
 
 while true; do
   tput clear
