@@ -13,7 +13,7 @@
 # Logo created with http://patorjk.com/software/taag/
 
 tput setaf 2
-echo "Install WebMin..."
+echo "Installing WebMin..."
 tput sgr0
 echo "[Webmin]
 name=Webmin Distribution Neutral
