@@ -12,11 +12,11 @@ tput sgr0
 arch=`uname -i`
 case $arch in
   i386 )
-		wget http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-		;;
-	x86_64 )
-		wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-		;;
+                wget http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+                ;;
+        x86_64 )
+                wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+                ;;
 esac
 rpm -Uvh epel-release-6-8.noarch.rpm
 rm epel-release-6-8.noarch.rpm
@@ -50,7 +50,7 @@ while true; do
   echo "    / _ |__ __/ /____  / ___/__ ___  / /_/ __ \/ __/"
   echo "   / __ / // / __/ _ \/ /__/ -_) _ \/ __/ /_/ /\ \  "
   echo "  /_/ |_\_,_/\__/\___/\___/\__/_//_/\__/\____/___/  "
-  echo "                                                    "  
+  echo "                                                    "
   echo "               Frunza Igor, 2013                    "
   echo "____________________________________________________"
 
@@ -66,19 +66,12 @@ while true; do
   tput sgr0
   read -p "Type a number from menu to install:" reposelection
 
-  case $warncheck in          
-          1) install_EPEL;;
-          2) install_REMI;;
-          3) install_EPEL; install_REMI;;
-          4) echo "Cancelling..."; break; exit;;
+  case "$reposelection" in
+          1 ) install_EPEL;;
+          2 ) install_REMI;;
+          3 ) install_EPEL; install_REMI;;
+          4 ) echo "Cancelling..."; break; exit ;;
           * ) tput setaf 1;  echo "Please type a number from menu list."; tput sgr0;;
   esac
 done
-
-
-
-
-
-
-
 
