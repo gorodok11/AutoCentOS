@@ -38,6 +38,7 @@ yum install -y yum-priorities
 #Setting base priorities
 sed -i '/enabled=1/a\priority=1\' /etc/yum.repos.d/CentOS-Base.repo
 
+string_msg = ""
 
 while true; do
   tput clear
@@ -62,14 +63,18 @@ while true; do
   echo "3. Install all repositories"
   echo "4. Exit."
   tput sgr0
+  tput setaf 1
+  echo $string_msg
+  tput sgr0
   read -p "Type a number from menu to install:" reposelection
 
   case "$reposelection" in
           1 ) install_EPEL;;
           2 ) install_REMI;;
           3 ) install_EPEL; install_REMI;;
-          4 ) echo "Cancelling..."; break; ;;
-          * ) tput setaf 1;  echo "Please type a number from menu list."; tput sgr0;;
+          4 ) echo "Cancelling..."; break ;;
+          * ) string_msg = "Please type a number from menu list.";;
   esac
 done
- yum -y update
+ 
+yum -y update
