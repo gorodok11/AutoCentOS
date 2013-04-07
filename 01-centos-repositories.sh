@@ -68,8 +68,8 @@ while true; do
           1 ) install_EPEL;;
           2 ) install_REMI;;
           3 ) install_EPEL; install_REMI;;
-          4 ) echo "Cancelling..."; break; exit ;;
+          4 ) echo "Cancelling..."; break; ;;
           * ) tput setaf 1;  echo "Please type a number from menu list."; tput sgr0;;
   esac
 done
-
+ yum -y update
