@@ -15,5 +15,10 @@
 # Importing functions
 source 00-centos-functions.sh
 
+#Installing devellopment packages
+declare -a packages=( ethtool nmap httpd make gcc libtool pcre-devel libnet-devel libdnet-devel libpcap-devel flex bison kernel-devel autoconf libxml2-devel );
+install_packages ${packages[@]}
+
+#Installing some console tools
 declare -a packages=( nano mc htop man system-config-securitylevel-tui );
 install_packages ${packages[@]}
