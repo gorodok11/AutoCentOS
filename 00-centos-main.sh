@@ -219,5 +219,7 @@ fi
 
 #Installing additional repositories
 
-bash 01-centos-repositories.sh
-
+#bash 01-centos-repositories.sh
+#bash 02-centos-base.sh
+#bash 03-centos-webmin.sh
+#bash 04-centos-lamp.sh
