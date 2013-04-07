@@ -18,17 +18,34 @@ source 00-centos-functions.sh
 declare -a packages=( httpd php php-common mysql php-mysql mysql-server mysql-bench mysql-devel php-gd php-cli  php-pear.noarch php-pear-DB.noarch php-pear-File.noarch phpmyadmin );
 install_packages ${packages[@]}
 
-chkconfig httpd on
-chkconfig mysqld on
+tput setaf 2
+echo "starting apache and mysql, and adding them to runlevel 3 via chkconfig"
+tput sgr0
+
 service mysqld start
 service httpd start
+chkconfig mysqld --add
+chkconfig httpd --add
+chkconfig mysqld --level 3 on
+chkconfig httpd --level 3 on
 
 tput setaf 2
+echo "Running the mysql_secure_install script."
 echo "Set root password. Disable guest login. Remove test databases. Activate changes."
 echo "By default root password is empty."
 tput sgr0
 
 /usr/bin/mysql_secure_installation
+if [ $? -eq 0 ]; then
+  tput setaf 2
+  echo "Mysql updated and secured. Be sure to store the root mysql user password somewhere safe."
+  tput sgr0
+else
+  tput setaf 1
+	echo "Something went wrong somewhere. Re-run the script /usr/bin/mysql_secure_installation then run this script again. Aborting. "
+  tput sgr0
+  exit 1
+fi
 
 service mysqld restart
 
