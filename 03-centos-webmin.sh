@@ -12,6 +12,8 @@
 # Some copyright info:
 # Logo created with http://patorjk.com/software/taag/
 
+yum -y install perl-Net-SSLeay
+
 tput setaf 2
 echo "Installing WebMin..."
 tput sgr0
