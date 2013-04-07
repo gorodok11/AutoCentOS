@@ -64,7 +64,7 @@ while true; do
   echo "4. Exit."
   tput sgr0
   tput setaf 1
-  echo $string_msg
+  echo "$string_msg"
   tput sgr0
   read -p "Type a number from menu to install:" reposelection
 
