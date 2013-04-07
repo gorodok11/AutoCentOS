@@ -1,27 +1,21 @@
 #!/bin/bash
-#Функция для легкого использования программы yum.
-install_packages()
-{
-	echo "Установка пакетов: ${@}"
-	yum -y update && yum -y install ${@}
-	if [ $? -eq 0 ]; then
-		echo "Пакет успешно установлен."
-	else
-		echo "Не удалось установить пакет!"
-		exit 1
-	fi
-}
+########################################################
+#     ___       __       _____         __  ____  ____  #
+#    / _ |__ __/ /____  / ___/__ ___  / /_/ __ \/ __/  #
+#   / __ / // / __/ _ \/ /__/ -_) _ \/ __/ /_/ /\ \    #
+#  /_/ |_\_,_/\__/\___/\___/\__/_//_/\__/\____/___/    #
+#                                                      #
+#                     Frunza Igor                      #
+#                         2013                         #
+########################################################
 
-#Функция для проаерки подключения к интернету
-ping_google()
-{
-echo "Проверка подключения к интернету (ping google.com)"
-ping google.com -c1 2>&1 >> /dev/null
-if [ $? -eq 0 ]; then
-	echo "Есть подключение!"
-else
-	echo "При проверке связи не удалось обнаружить узел www.google.com."
-	
-	exit 1
-fi
-}
+# Some copyright info:
+# Logo created with http://patorjk.com/software/taag/
+
+# Importing functions
+source 00-centos-functions.sh
+
+declare -a packages=( httpd php php-common mysql php-mysql mysql-server phpmyadmin );
+install_packages ${packages[@]}
+
+service httpd restart
