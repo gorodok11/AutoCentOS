@@ -54,6 +54,20 @@ phpinfo();
 ?>" >/var/www/html/info.php
 
 tput setaf 2
-echo "Open in browser http://your_IP/info.php for testing PHP."
-echo "Open in browser http://your_IP/phpmyadmin to administrate mySQL databases."
+echo "Open in browser http://your-server-ip/info.php for testing PHP."
+echo "Open in browser http://your-server-ip/phpMyAdmin/ to administrate mySQL databases."
 tput sgr0
+
+# To do: prompt user to insert allowed IP
+tput setaf 3
+echo "After installation maybe you will receive the next error:"
+echo "You don't have permission to access /phpmyadmin/ on this server."
+echo "To fix this, you need to edit /etc/httpd/conf.d/phpMyAdmin.conf"
+echo "nano /etc/httpd/conf.d/phpMyAdmin.conf"
+echo "Add your allowed IPs separated by spaces in <Directory /usr/share/phpMyAdmin/> section"
+echo "Example: Allow from 127.0.0.1 10.1.3.53"
+tput sgr0
+
+
+
+
