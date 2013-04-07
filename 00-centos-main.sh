@@ -60,6 +60,38 @@ tput clear
 
 #----------------------------------------------------
 
+echo "Check config file..."
+while [ $# -gt 0 ]; do
+        case $1 in
+                -c)
+                        if [ -r "$2" ]; then
+                                source "$2"
+                                shift 2
+                        else
+                                tput setaf 1
+                                ${ECHO} "Unable to read config file \"$2\""
+                                tput sgr0
+                                exit 1
+                        fi
+                        ;;
+                *)
+                        tput setaf 1
+                        ${ECHO} "Unknown option \"$1\""
+                        tput sgr0
+                        exit 2
+                        ;;
+        esac
+done
+
+echo "Loading config file..."
+
+if [ $# = 0 ]; then
+        SCRIPTPATH=$(cd $(dirname $0) && pwd);
+        source $SCRIPTPATH/AutoCentOS.conf
+fi;
+
+#----------------------------------------------------
+
 echo "OS Version Check."
      release=`cat /etc/redhat-release|awk '{print $3}' | cut -d"." -f1`
      if [ $release != "6" ]
