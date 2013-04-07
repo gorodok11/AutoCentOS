@@ -15,11 +15,15 @@
 # Importing functions
 source 00-centos-functions.sh
 
+tput setaf 2
+echo "Installing Appache, PHP, mySQL, phpMyAdmin..."
+tput sgr0
+
 declare -a packages=( httpd php php-common mysql php-mysql mysql-server mysql-bench mysql-devel php-gd php-cli  php-pear.noarch php-pear-DB.noarch php-pear-File.noarch phpmyadmin );
 install_packages ${packages[@]}
 
 tput setaf 2
-echo "starting apache and mysql, and adding them to runlevel 3 via chkconfig"
+echo "Starting apache and mysql, and adding them to runlevel 3 via chkconfig"
 tput sgr0
 
 service mysqld start
