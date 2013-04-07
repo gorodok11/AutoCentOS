@@ -24,4 +24,7 @@ enabled=1" >/etc/yum.repos.d/webmin.repo
 rpm --import http://www.webmin.com/jcameron-key.asc
 yum -y install webmin
 
+# Error code: ssl_error_rx_record_too_long
+sed -i "s/ssl\=0/ssl\=1/" /etc/webmin/miniserv.conf
+/etc/init.d/webmin restart
 
