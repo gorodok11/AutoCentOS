@@ -11,3 +11,11 @@
 
 # Some copyright info:
 # Logo created with http://patorjk.com/software/taag/
+# Main script
+
+# To do:
+# Display info 
+# Collect installation parameters
+
+# Run install
+bash 00-centos-main.sh
