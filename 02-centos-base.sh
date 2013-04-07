@@ -16,9 +16,18 @@
 source 00-centos-functions.sh
 
 #Installing devellopment packages
-declare -a packages=( ethtool nmap httpd make gcc libtool pcre-devel libnet-devel libdnet-devel libpcap-devel flex bison kernel-devel autoconf libxml2-devel );
+declare -a packages=( ethtool nmap httpd make gcc libtool bind-utils ntp pcre-devel libnet-devel libdnet-devel libpcap-devel flex bison kernel-devel autoconf libxml2-devel );
 install_packages ${packages[@]}
 
+chkconfig ntpd on
+ntpdate pool.ntp.org
+service ntpd start
+
+# Temporarily set selinux to permissive
+setenforce permissive
+# To turn selinux off immediately, without rebooting use:
+# setenforce 0
+
 #Installing some console tools
-declare -a packages=( nano mc htop man system-config-securitylevel-tui );
+declare -a packages=( vim nano mc htop man system-config-firewall-tui );
 install_packages ${packages[@]}
