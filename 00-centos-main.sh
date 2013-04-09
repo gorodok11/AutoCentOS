@@ -223,3 +223,4 @@ fi
 #bash 02-centos-base.sh
 #bash 03-centos-webmin.sh
 #bash 04-centos-lamp.sh
+#bash 05-centos-desktop-gnome.sh
