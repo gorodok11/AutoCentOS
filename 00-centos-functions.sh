@@ -16,7 +16,9 @@
 # To use these functions just import this file 
 # source 00-centos-functions.sh
 
-#Declaring Functions - This function is an easier way to reuse the yum code. 
+#Declaring Functions 
+
+#This function is an easier way to reuse the yum code. 
 install_packages()
 {
  tput setaf 2
@@ -34,6 +36,4 @@ install_packages()
   exit 1
  fi
 }
-
-#----------------------------------------------------
 
