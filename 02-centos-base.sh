@@ -29,5 +29,5 @@ setenforce permissive
 # setenforce 0
 
 #Installing some console tools
-declare -a packages=( vim nano mc htop man system-config-firewall-tui sysstat ntp net-snmp sudo screen bash-completion);
+declare -a packages=( vim nano mc htop man system-config-firewall-tui system-config-network-tui sysstat ntp net-snmp sudo screen bash-completion);
 install_packages ${packages[@]}
