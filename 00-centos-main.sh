@@ -6,11 +6,9 @@
 #  /_/ |_\_,_/\__/\___/\___/\__/_//_/\__/\____/___/    #
 #                                                      #
 #                     Frunza Igor                      #
-#                         2013                         #
+#                         2014                         #
 ########################################################
 
-# Some copyright info:
-# Logo created with http://patorjk.com/software/taag/
 
 # Importing functions
 source 00-centos-functions.sh
