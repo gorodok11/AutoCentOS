@@ -109,7 +109,7 @@ echo "OS Version Check."
                 done
           else
                tput setaf 2
-               echo "Version is 6.3. Good to go."
+               echo "Version is 6. Good to go."
                tput sgr0
      fi
 
